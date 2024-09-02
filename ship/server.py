@@ -9,7 +9,7 @@ def main():
 
     # Set up the socket server
     #==================================
-    host = '192.168.0.6'  # Localhost
+    host = '0.0.0.0'  # Localhost
     port = 11451  # Port to listen on
     #==================================
 

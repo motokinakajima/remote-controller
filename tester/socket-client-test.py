@@ -3,7 +3,7 @@ import socket
 def run_client():
     # Set up the socket server
     #==================================
-    server_address = '192.168.0.6'
+    server_address = 'kpc.local'
     server_port = 11452
     #==================================
 
