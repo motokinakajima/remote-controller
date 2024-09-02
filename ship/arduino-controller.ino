@@ -26,8 +26,6 @@ void loop(){
         data.replace("!1<","");
         data.replace(">","");
         volume = data.toInt();
-        volume *= 6;
-        volume += 800;
         if(volume >= 2200){
           volume = 2200;
         }
@@ -38,7 +36,6 @@ void loop(){
         data.replace("!2<","");
         data.replace(">","");
         volume2 = data.toInt();
-        volume2 += 90;
         ladder.write(volume2);
       }
       input=NAN;

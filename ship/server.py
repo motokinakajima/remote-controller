@@ -10,7 +10,7 @@ def main():
     # Set up the socket server
     #==================================
     host = '0.0.0.0'  # Localhost
-    port = 11451  # Port to listen on
+    port = 11452  # Port to listen on
     #==================================
 
     with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
