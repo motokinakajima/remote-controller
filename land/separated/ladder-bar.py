@@ -23,21 +23,6 @@ class Application(tk.Frame):
         self.PORT = 11452
         #==========================
 
-        self.scale_var1 = tk.IntVar()
-        scale1 = tk.Scale( self.master, 
-                    variable = self.scale_var1, 
-                    command = self.slider_scroll1,
-                    orient=tk.VERTICAL,   # 配置の向き、水平(HORIZONTAL)、垂直(VERTICAL)
-                    length = 300,           # 全体の長さ
-                    width = 20,             # 全体の太さ
-                    sliderlength = 30,      # スライダー（つまみ）の幅
-                    from_ = 0,            # 最小値（開始の値）
-                    to = 20,               # 最大値（終了の値）
-                    resolution=1,         # 変化の分解能(初期値:1)
-                    tickinterval=50         # 目盛りの分解能(初期値0で表示なし)
-                    )
-        scale1.pack(side= tk.LEFT)
-
         self.scale_var2 = tk.IntVar()
         scale2 = tk.Scale( self.master, 
                     variable = self.scale_var2, 
@@ -52,21 +37,7 @@ class Application(tk.Frame):
                     tickinterval=50         # 目盛りの分解能(初期値0で表示なし)
                     )
         scale2.pack(side= tk.TOP)
-
-    def slider_scroll1(self, event=None):
-        '''スライダーを移動したとき'''
-        output_data = (self.scale_var1.get() * 7) + 800
-        print_data1 = "!1<"
-        print_data1 += str(output_data)
-        print_data1 += ">."
-        print(print_data1)
-        self.sock = socket.socket(socket.AF_INET)
-        self.sock.connect((self.IPADDR, self.PORT))
-        self.data = print_data1
-
-        self.sock.send(self.data.encode("utf-8")) 
-
-        #self.ser.write(self.data.encode("utf-8"))
+        
     def slider_scroll2(self, event=None):
         '''スライダーを移動したとき'''
         output_data = self.scale_var2.get() + 90
@@ -83,6 +54,6 @@ class Application(tk.Frame):
 if __name__ == "__main__":
     root = tk.Tk()
     app = Application(master = root)
-    root.geometry("700x500")
+    #root.geometry("700x500")
     root.resizable(False, False)
     app.mainloop()
