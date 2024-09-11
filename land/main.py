@@ -27,12 +27,12 @@ class Application(tk.Frame):
         scale1 = tk.Scale( self.master, 
                     variable = self.scale_var1, 
                     command = self.slider_scroll1,
-                    orient=tk.VERTICAL,   # 配置の向き、水平(HORIZONTAL)、垂直(VERTICAL)
+                    orient=tk.HORIZONTAL,   # 配置の向き、水平(HORIZONTAL)、垂直(VERTICAL)
                     length = 300,           # 全体の長さ
-                    width = 20,             # 全体の太さ
+                    width = 800,             # 全体の太さ
                     sliderlength = 30,      # スライダー（つまみ）の幅
                     from_ = 0,            # 最小値（開始の値）
-                    to = 20,               # 最大値（終了の値）
+                    to = 2200,               # 最大値（終了の値）
                     resolution=1,         # 変化の分解能(初期値:1)
                     tickinterval=50         # 目盛りの分解能(初期値0で表示なし)
                     )
@@ -46,8 +46,8 @@ class Application(tk.Frame):
                     length = 300,           # 全体の長さ
                     width = 20,             # 全体の太さ
                     sliderlength = 30,      # スライダー（つまみ）の幅
-                    from_ = 0,            # 最小値（開始の値）
-                    to = 255,               # 最大値（終了の値）
+                    from_ = -50,            # 最小値（開始の値）
+                    to = 50,               # 最大値（終了の値）
                     resolution=1,         # 変化の分解能(初期値:1)
                     tickinterval=50         # 目盛りの分解能(初期値0で表示なし)
                     )
@@ -55,7 +55,7 @@ class Application(tk.Frame):
 
     def slider_scroll1(self, event=None):
         '''スライダーを移動したとき'''
-        output_data = (self.scale_var1.get() * 7) + 800
+        output_data = self.scale_var1.get()
         print_data1 = "!1<"
         print_data1 += str(output_data)
         print_data1 += ">."
