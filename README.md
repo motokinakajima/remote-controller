@@ -37,3 +37,11 @@ nohup bash start_gstreamer.sh > gstreamer.log 2>&1 &
 ```
 
 Under the ship folder, there will be a start command that starts everything you need for this project, while wrapping the command around with the nohup command in order to prevent process stopping from termination of the terminal.
+
+# ship side
+
+When using an FRC Camera, the following command worked instead of the command written in the ship folder
+
+```shell
+gst-launch-1.0 -v v4l2src device=/dev/video0 ! image/jpeg,width=640,height=480,framerate=30/1 ! jpegdec ! videoconvert ! x264enc tune=zerolatency bitrate=500 speed-preset=superfast ! rtph264pay config-interval=1 ! udpsink host=$RECEIVER_IP port=$PORT
+```
